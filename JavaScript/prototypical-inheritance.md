@@ -19,7 +19,7 @@ length: 90
 
 ## Intro
 
-Today we're going to look at one of my favorite subjects: Inheritance in JavaScript. We'll be looking at the existing JavaScript objects String and Array, and how they make use of what's called a "prototype." We'll be inheriting from the Array object to build our own custom implementation, and finally, we'll be creating prototypical objects from scratch.
+Today we're going to look at one of my favorite subjects: Inheritance in JavaScript. We'll be looking at the existing JavaScript objects String and Array, and how they make use of what's called a "prototype." We'll be inheriting from the Array object to build our own List object, and finally, we'll be creating objects from scratch.
 
 ## What is Prototypical Inheritance ?
 
