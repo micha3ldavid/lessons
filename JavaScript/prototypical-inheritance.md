@@ -8,9 +8,41 @@ length: 90
 
 * define inheritance
 * articulate the main purpose of inheritance
+* create primitive objects
+* define object members, properties, and methods
 * create a List object, which inherits from Array
 * use the 'new' keyword to create object instances
 * use scope to reference object members
 * create a custom Creature object
 * create a Supernatural creature, which inherits our Creature
 * use instanceof to compare objects
+
+## Intro
+
+Today we're going to look at one of my favorite subjects: Inheritance in JavaScript. We'll be looking at the existing JavaScript objects String and Array, and how they make use of what's called a "prototype." We'll be inheriting from the Array object to build our own custom implementation, and finally, we'll be creating prototypical objects from scratch.
+
+## What is Prototypical Inheritance ?
+
+While that word combination sounds technical and scary, prototypical inheritance is just a fancy way of saying "inheritance." And what is inheritance? Inheritance is a programming term to describe when one object is based on another.
+
+Still kind of fuzzy, right? 
+
+Let's look at inheritance in the real world first, then we'll apply it to JavaScript.
+
+I inherited my early gray hair from my mother. In that scenario, my mother is the base object and I am the child object. Characteristics from her have been passed on to me, which is the same as what programming inheritance is.
+
+The reason why it's called "Prototypical Inheritance" is because JavaScript uses something called a "prototype" to achieve this inheritance type of behavior.
+
+### Practice/Participation
+
+Open up a Codepen and go to the JavaScript console. You'll also want to open up Developer Tools, preferably in Chrome. View the below code in the console with the class. Have the students follow along on their machines for a closer look.
+
+```javascript
+  console.info('String.prototype', String.prototype);
+  console.info('Array.prototype', Array.prototype);
+```
+
+
+
+
+
