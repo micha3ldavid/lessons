@@ -33,14 +33,14 @@ I inherited my early gray hair from my mother. In that scenario, my mother is th
 
 The reason why it's called "Prototypical Inheritance" is because JavaScript uses something called a "prototype" to achieve this inheritance type of behavior.
 
-## Everything is an Object... Almost
+### Everything is an Object... Almost
 
-Before we get our hands dirty I want to mention that in JavaScript, almost everything is an object. This is really fantastic for us, because once we understand how objects work in JavaScript, we can apply it to virtually every area of the language. Here's a list of a few commonly used objects in JavaScript:
+Before we get our hands dirty I want to mention that in JavaScript, almost everything is an object. And all but one (primative) have a prototype. This is really fantastic for us, because once we understand how one object works, we can apply it to virtually all other areas of the language. Here's a list of a few commonly used objects in JavaScript:
 
 1. String
-2. Number
+2. Date
 3. Array
-4. Function
+4. Number
 
 *Try it*: Open up a Codepen and go to the JavaScript console. You'll also want to open up Developer Tools, preferably in Chrome. View the below code in the console with the students. Have the students follow along on their machines so they can poke around.
 
@@ -50,10 +50,22 @@ Before we get our hands dirty I want to mention that in JavaScript, almost every
 *Try it*: Have students locate the toUpperCase method on the prototype. Once everybody has found it, walk through an example of using that method (and the prototype) on a String instance:
 
 ```javascript
-  var myString = "hello, world";
-  console.info(myString.toUpperCase());
+  var greeting = new String("hello, world");
+  console.info(greeting.toUpperCase());
 ```
 
+## The 'new' Keyword
 
+```javascript
+  var date = new Date();
+```
+
+### Shorthands
+
+```javascript
+  var greeting = "hello, world";
+  var colors = ["red", "green, "blue"];
+  var students = 16;
+```
 
 
