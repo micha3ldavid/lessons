@@ -50,22 +50,33 @@ Before we get our hands dirty I want to mention that in JavaScript, almost every
 *Try it*: Have students locate the toUpperCase method on the prototype. Once everybody has found it, walk through an example of using that method (and the prototype) on a String instance:
 
 ```javascript
-  var greeting = new String("hello, world");
+  var greeting = "hello, world";
   console.info(greeting.toUpperCase());
 ```
 
-## The 'new' Keyword
+## Let's Make a List
 
 ```javascript
-  var date = new Date();
+  function List() {
+  
+  }
+  
+  List.prototype = Object.create(Array.prototype);
+  
+  List.prototype.isEmpty = function () {
+    return this.length < 1;
+  };
+  
 ```
-
-### Shorthands
 
 ```javascript
-  var greeting = "hello, world";
-  var colors = ["red", "green", "blue"];
-  var students = 16;
+  var colors = new List();
+  console.info(colors.isEmpty());
 ```
 
+```javascript
+  var colors = new List();
+  colors.push("red");
+  console.info(myList.isEmpty());
+```
 
