@@ -64,7 +64,7 @@ Before we get our hands dirty I want to mention that in JavaScript, almost every
 
 ```javascript
   var greeting = "hello, world";
-  var colors = ["red", "green, "blue"];
+  var colors = ["red", "green", "blue"];
   var students = 16;
 ```
 
