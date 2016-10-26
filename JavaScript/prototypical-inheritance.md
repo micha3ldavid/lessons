@@ -31,7 +31,7 @@ Let's look at inheritance in the real world first, then we'll apply it to JavaSc
 
 I inherited my early gray hair from my mother. In that scenario, my mother is the base object and I am the child object. Characteristics from her have been passed on to me, which is the same as what programming inheritance is.
 
-The reason why it's called "Prototypical Inheritance" is because JavaScript uses something called a "prototype" to achieve this inheritance type of behavior.
+The reason why it's called "Prototypical Inheritance" is because JavaScript uses something called a "prototype" to achieve the ability to inherit.
 
 ### Everything is an Object... Almost
 
@@ -54,29 +54,38 @@ Before we get our hands dirty I want to mention that in JavaScript, almost every
   console.info(greeting.toUpperCase());
 ```
 
-## Let's Make a List
+## Why is Inheritance Important ?
 
-```javascript
-  function List() {
-  
-  }
-  
-  List.prototype = Object.create(Array.prototype);
-  
-  List.prototype.isEmpty = function () {
-    return this.length < 1;
-  };
-  
-```
+ 1. code reuse
+ 2. instances (many copies of the same object)
 
-```javascript
-  var colors = new List();
-  console.info(colors.isEmpty());
-```
+### String.prototype.reverse
 
-```javascript
-  var colors = new List();
-  colors.push("red");
-  console.info(myList.isEmpty());
-```
+1. add method to prototype
+2. Demo
+3. adding to native prototype, not so good. why?
+4. segueway into inheriting from, rather than adding to, prototype 
+
+### Let's Make a List
+
+1. Object.create (inherit from Array)
+2. Add simple method (isEmpty)
+3. Demo - compare Array and List (use push, and isEmpty)
+
+## The 'new' Keyword
+
+### Scope
+
+## Creature
+
+### Vampire
+
+### Zombie
+
+### insanceof
+
+## Recap
+
+## Homework
+
 
