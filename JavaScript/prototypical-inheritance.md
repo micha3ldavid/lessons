@@ -215,12 +215,13 @@ Now that we've created our own List object, inherited an existing JavaScript obj
 function CreatureOfTheNight() {}
 
 CreatureOfTheNight.prototype = {
+	name: 'Creature',
+	sound: 'Growllll',
 	hairColor: '',
 	eyeColor: '',
 	numberOfEyes: 2,
 	height: 0,
 	weight: 0,
-	sound: 'Growllll',
 	
 	speak: function () {
 		alert(this.sound);
@@ -230,6 +231,8 @@ CreatureOfTheNight.prototype = {
 ```
 
 So there's our CreatureOfTheNight object. Let's create an `instance` of it and call the methid `speak`.
+
+*Try it (We do)*:
 
 ```javascript
 var creature = new CreatureOfTheNight();
@@ -244,7 +247,7 @@ How many different supernatural creatures and monsters can you think of? Probabl
 
 Sounds like a good opportunity to use inheritance. 
 
-Let's make a Vampire object.
+*Try it (We do)*: Let's make a Vampire object.
 
 *Questions*
 
@@ -257,20 +260,62 @@ Let's make a Vampire object.
 function Vampire () {}
 
 Vampire.prototype = Object.create(CreatureOfTheNight.prototype);
-Vampire.sound = "I want to drink your blood!!!";
+Vampire.prototype.name = "Vampire";
+Vampire.prototype.sound = "I want to drink your blood!!!";
 
 var vampire = new Vampire();
 vampire.speak();
 
 ```
+#### Constructors
 
+At this point we've created quite a few objects. Remember how the first step in creating our objects is to create a function? The reason for that is because the function is what's called a `constructor`. A `constructor` is a function that is run each time a new instance of our object is created. So each time we say 'new' the constructor is run and an instance of our DNA prototype is produces. This is very handy and allows us to configure an object each time it's created.
+
+*Try it (I do, you follow along)*: Let's update our Vampire object to use the constructor. We're going to allow the ability ro pass in the name and eye color of each vampire that gets created. We're also going to create a new `speak` method to use the vampire names.
+
+```javascript
+function Vampire(name, eyeColor) {
+	this.name = name;
+	this.eyeColor = eyeColor;
+}
+
+Vampire.prototype = Object.create(CreatureOfTheNight.prototype);
+Vampire.prototype.sound = "I want to drink your blood!!!";
+Vampire.prototype.speak = function () {
+	alert("My name is " + this.name + " and " + this.sound); 
+};
+```
+
+*Try it (We do)*: Now we're able to pass in a value for `name` and `eyeColor` and apply it to the Vampire instance each time a new one is created. Let's take a look:
+
+```javascript
+var bobby = new Vampire("Bobby", "blue");
+var susie = new Vampire("Susie", "green");
+
+bobby.speak();
+susie.speak();
+
+```
 
 ### Assignment - Make Your Own Creature
 
+*Try it (You do it):*
+
+Break into pairs/groups (depending on class size).
+
+Create your own CreatureOfTheNight. Your creature should meet the below criteria:
+
+1. Inherits CreateOfTheNight object.
+2. Makes use of the constructor function
+3. Updates the speak function to do something different than CreatureOfTheNight
+4. Add 1 or more creative, additinal features to your creature
+
+*Share*
+
+At this point, we'll share group/pair creatures with the rest of the class, pass around ideas, suggestuions, what works, what doesn't, etc.
+
 ## Recap
 
-FIT in where? TBD
+## Q & A
 
-#### Properties, Methods, Members
-
-## Why is Inheritance Important ?
+Any time left over use for Q&A. Inheritance and prototype are large subjects and we've just touched the surface. There are bound to be questions from students after this session.
