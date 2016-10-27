@@ -127,7 +127,7 @@ For now, that's all we really need to know. In future lessons we'll dive deeper 
 
 --
 
-*Try it (You do)*: Now before we move on let's have a little individual fun with this. Each of you (students) create a property like we did with reverse, only this time let's call it `isEmpty`. I want the function to either return `false` if the string has characters, or return `true` if the string has no characters.
+*Try it (You do)*: Now before we move on let's have a little individual fun with this. Each of you (students) create a member like we did with reverse, only this time let's call it `isEmpty`. I want the function to either return `false` if the string has characters, or return `true` if the string has no characters.
 
 ```javascript
 String.prototype.isEmpty = function () {
@@ -139,11 +139,9 @@ Review one or two of the students solutions as a class.
 
 ## Inheriting from Array
 
-Now String is a native JavaScript object, which means it is a built in part of the language. It's not the best idea we go altering the prototypes of native objects, as it will affect these objects accross the board and in some cases can actually cause harm. 
+Let's move on.
 
-The good news is, there is an alternative. 
-
-Instead off adding to the `prototype` we are going to `inherit` from it. Let's move away from String right now and have a look at Array. Array is an awesome object, which already comes with a ton of cool features on the prototype. But what if we thought Array could benefit from having a few more cool features? Better yet, what if we want to create our OWN object and have it inherit all of Array's existing functionality? Let's going ahead and do that. 
+Now instead off adding to the `prototype` we are going to `inherit` from it. Let's move away from String and have a look at Array. Array is an awesome object, which already comes with a ton of cool memebers on the prototype. But what if we thought Array could benefit from having a few more things? Better yet, what if we want to create our OWN object and have it inherit all of Array's existing functionality? Let's going ahead and do that. 
 
 ### List
 
@@ -165,7 +163,7 @@ Looking at the console, we can see that List.prototype contains all of the same 
 
 Whenever we create JavaScript objects that will make use of a prototype, we always want start by creating our object as a `function`. This function serves a very specific purpose, which we'll look at later. For now just know this is step one. 
 
-Since a function is an object, and (almost) all objects in JavaScript have a prototype, it also has a prototype. And as we saw with objects earlier on, the prototype is what holds our properties. So that is where we want to do most of our work.
+Since a function is an object, and (almost) all objects in JavaScript have a prototype, it also has a prototype. And as we saw with objects earlier on, the prototype is what holds our members. So that is where we will do most of our work.
 
 Since we first want to inherit from Array, we are assigning a copy of Array.prototype to List.prototype by using Object.create. Object.create is a really cool function that has some very advanced uses. I don't want to get into too much detail about it just yet. For now, just know that Object.create will create a prototype object from whatever you pass to it.
 
@@ -228,19 +226,21 @@ colorList.push("blue");
 
 console.info('color list is empty', colorList.isEmpty());
 ```
-Now isEmpty give us back `false`, since we went ahead and added some strings to our List. But where did `push()` come from? Push is a member of Array and since our List inherits Array, we get everything it comes with as well.
+Now isEmpty give us back `false`, since we went ahead and added some strings to our List. 
+
+*Optional, depending on students answer to question above*: But where did `push()` come from? Push is a member of Array and since our List inherits Array, we get everything it comes with as well.
 
 ## The 'new' Keyword
 
-By now you've noticed us using the word 'new' when creating objects. 'new' is a reserved word in JavaScript. It's used to create what is called an `instance` of an object. An instance is a live/active occurance of an object. So, as mentioned earlier, if a prototype is the DNA or blueprint of an object, and instance is the creation and use of that DNA in an occurance.
+By now you've noticed us using the word 'new' when creating objects. 'new' is a reserved word in JavaScript. It's used to create what is called an `instance` of an object. An instance is a live/active occurance of an object. So, as mentioned earlier, if a prototype is the DNA or blueprint of an object, and instance is the creation and use of that blueprint in a single occurance.
 
-This is also why when we added our `isEmpty` function to the String prototype, all strings inherited it: Modify something on the prototype DNA and all instances receive the changes.
+This is also why when we added our `isEmpty` function to the String prototype earlier, ALL strings inherited it: Modify something on the prototype DNA and all instances receive the changes.
 
 ## Creature of the Night
 
-Now that we've created our own List object, inherited an existing JavaScript object (Array), and created a new member on the prototype (isEmpty), we're going to create our very own object from scratch. After that, we'll use it as our `base` and create `derived` objects, which will inherit it.
+Now that we've created our own List object, inherited an existing JavaScript object (Array), and created a new member on the prototype (isEmpty), we're going to create our very own object from scratch. After that, we'll use it as our `base` and create `derived` objects, which will inherit it. Sounds like a lot of work but it's actually going to be quite fun.
 
-*Try it (We do)*: Together, as a class, we're going to build an object from scratch. The object is going to be called CreatureOfTheNight. We're going to brainstorm together, different charateristics a CreatureOfTheNight might have and then we'll add them to our prototype.
+*Try it (We do)*: Together, as a class, we're going to build an object from scratch. The object is going to be called `CreatureOfTheNight`. We're going to brainstorm together, different charateristics a `CreatureOfTheNight` might have and then we'll add them to our prototype.
 
 *Questions*
 
@@ -304,9 +304,9 @@ vampire.speak();
 ```
 #### Constructors
 
-At this point we've created quite a few objects. Remember how the first step in creating our objects is to create a function? The reason for that is because the function is what's called an object's `constructor`. A `constructor` is a function that is run each time a new `instance` is created. So each time we say 'new' the `constructor` is run and an instance of our DNA prototype is produced. This is very handy and allows us to configure an object each time it's created.
+At this point we've created quite a few objects. Remember how the first step in creating our objects is to create a function? The reason for that is because the function is what's called an object's `constructor`. A `constructor` is a function that is run each time a new `instance` is created. So each time we say 'new' the `constructor` is run and an instance of our DNA, or `prototype`, is produced. This is very handy and allows us to configure an object each time it's created.
 
-*Try it (I do, you follow along)*: Let's update our Vampire object to use the constructor. We're going to allow the ability to pass in the `name` and `eyeColor` of each vampire that gets created. We're also going to create a new `speak` method to use the vampire names.
+*Try it (I do, you follow along)*: Let's update our Vampire object to use the constructor. We're going to allow the ability to pass in the `name` and `eyeColor` of each vampire that gets created. We're also going to create a new `speak` method, which will use the vampire names.
 
 ```javascript
 function Vampire(name, eyeColor) {
@@ -365,16 +365,5 @@ Q. How is it I can use toUpperCase() on a string and don't have to reference the
 
 A. When you create a string, or any other object, you are creating an instance (if you are in the lesson and have not gotten to instances yet, touch briefly on that content). The prototype of an object is just a blueprint or DNA of that object and is not actually put to use until a new instance is created. When a new instance is created, you are creating a copy of the blueprint, therefore the 'prototype' is actually what you're using.
 
-
-```javascript
-var today = new Date(); => instance of Date object
-var myArray = new Array(); => instance of Array object
-var myList = new List(); => instance of List object
-
-var greeting = "hello world"; => instance of String
-var multiplier = 10; => instance of Number
-var colors = ["red", "green", "blue"]; => instance of Array
-var myObject = {]; => Object
-```
-
-All of the above are instances, or occurances, of a JavaScript object. 
+Q. Difficulty around context
+A. Show diagram of scope/context and visually step through the proccess of what is happening. Context can be hard to explain with words only.
