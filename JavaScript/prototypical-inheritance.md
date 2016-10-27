@@ -320,10 +320,12 @@ At this point, we'll share group/pair creatures with the rest of the class, pass
 
 Any time left over use for Q&A. Inheritance and prototype are large subjects and we've just touched the surface. There are bound to be questions from students after this session.
 
-Student questions you may run into durring the lesson/QA
+Student questions you may run into durring the lesson/QA.
 
 Q. Why don't I have to use 'new' for string, number, array (ie: "string", 10, [])
+
 A. String, number, array, and Object are primitave types which means they don't require the 'new' keyword in order to use. Any objects which we create ourselves must use the 'new' keyword, and most other JavaScript objects also use the 'new' keyword. Take Date for example.
 
 Q. How is it I can use toUpperCase() on a string and don't have to reference the word `prototype` (ie: "string".toUpperCase() vs. "string".prototype.toUpperCase()).
+
 A. When you create a string, or any other object, you are creating an instance (if you are in the lesson and have not gotten to instances yet, touch briefly on that content). The prototype of an object is just a blueprint or DNA of that object and is not actually put to use until a new instance is created. When a new instance is created, you are creating a copy of the blueprint, therefore the 'prototype' is actually what you're using.
