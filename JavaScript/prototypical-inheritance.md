@@ -57,7 +57,7 @@ Now that we've looked at a few different JavaScript objects and seen they all ha
 
 ### Properties, Methods, Members
 
-*Try it (we do)* Open back up the String.prototype in the console. Review the different `memebers`.
+*Try it (we do)* Open back up the String.prototype in the console. Review the different `members`.
 
 What are member? Members are a collection of `properties` and `methods`, which make up a `prototype`. `methods` are functions on a prototype and represent behavior. `properties` are everything else (strings, numbers, etc).
 
@@ -103,13 +103,29 @@ console.info(greeting.reverse());
 // => "dlrow ,olleh"
 ```
 
-### This is Scope
+### This is Context
+
+Now, going back to our reverse method, you'll see i used a couple references to `this`. 
+
+*Question*: Does anybody know what `this` is?
+
+`this` is another JavaScript keyword which represents context. Entire lessons can be created around understanding JavaScript context, and I don't want us to cram too much complex information in too quickly, so for now I just want to briefly talk about it.
+
+In the simplest of terms, context (or `this`) refers to the object the code is currently executing in. Let's take a quick look at our String object for example:
 
 ![alt text](assets/scope.png "Scope Diagram")
 
+Our `reverse` method is on the String.prototype along with many other methods like `toLowerCase`, `charAt`, and `length`. When `reverse` is called, it's calls as a part of the String object. Since the String object also has these other members, we can access them easily by using the `this` keyword.
+
+For now, that's all we really need to know. In future lessons we'll dive deeper into context.
+
+--
+
 #### Short Q&A/Checkin
 
-*Questions*: The learning curve for prototype can be rather steep, now is a great time for questions in case anybody has fallen beind or is having a more difficult time understanding the material and what is taking place.
+*Questions*: The learning curve for prototype and object oriented JavaScript can be rather steep, now is a great time for questions in case anybody has fallen beind or is having a more difficult time understanding the material and what is taking place.
+
+--
 
 *Try it (You do)*: Now before we move on let's have a little individual fun with this. Each of you (students) create a property like we did with reverse, only this time let's call it `isEmpty`. I want the function to either return `false` if the string has characters, or return `true` if the string has no characters.
 
