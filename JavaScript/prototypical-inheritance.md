@@ -27,7 +27,7 @@ Still kind of fuzzy?
 
 Let's look at inheritance in the real world first, then we'll apply it to JavaScript.
 
-I inherited my early gray hair from my father. In that scenario, my father is the `base` object [or, the object that is passing on its properties] and I am the `derived` object [or, the object that is recieving/inheriting]. Characteristics, or `properties`, from him have been passed on to me, which is what happens in the programming world as well.
+I inherited my early gray hair from my father. In that scenario, my father is the `base` object [or, the object that is passing on its properties] and I am the `derived` object [or, the object that is recieving/inheriting]. Characteristics, from him have been passed on to me, which is what happens in the programming world as well.
 
 The reason it's called "Prototypical Inheritance" is because JavaScript is not a class-based language and uses something called a `prototype` to achieve the ability to inherit.
 
@@ -53,9 +53,15 @@ So let's take a look at the prototype of these objects to get a feel for what's 
 
 ## A Look into String.prototype
 
-Now that we've looked at a few different JavaScript objects and seen they all have a `prototype`, which consists of a variety of different `properties`, let's shift our focus onto String and go a little deeper.
+Now that we've looked at a few different JavaScript objects and seen they all have a `prototype`, which consists of a variety of different `members`, let's shift our focus onto String and go a little deeper.
 
 ### Properties, Methods, Members
+
+*Try it (we do)* Open back up the String.prototype in the console. Review the different `memebers`.
+
+What are member? Members are a collection of `properties` and `methods`, which make up a `prototype`. `methods` are functions on a prototype and represent behavior. `properties` are everything else (strings, numbers, etc).
+
+![alt text](assets/members.png "Members Diagram")
 
 *Try it (I do, you follow along)*: Have students locate the toUpperCase method on the prototype. Once everybody has found it, walk through an example of using that method on a String instance:
 
@@ -99,7 +105,7 @@ console.info(greeting.reverse());
 
 ### This is Scope
 
-
+![alt text](assets/scope.png "Scope Diagram")
 
 #### Short Q&A/Checkin
 
