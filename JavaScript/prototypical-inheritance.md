@@ -95,6 +95,10 @@ console.info(greeting.reverse());
 // => "dlrow ,olleh"
 ```
 
+### This is Scope
+
+//TODO: Diagram
+
 *Questions*: The learning curve for prototype can be rather steep, now is a great time for questions in case anybody has fallen beind or is having a more difficult time understanding the material and what is taking place.
 
 *Try it (You do)*: Now before we move on let's have a little individual fun with this. Each of you (students) create a property like we did with reverse, only this time let's call it `isEmpty`. I want the function to either return `false` if the string has characters, or return `true` if the string has no characters.
@@ -191,15 +195,77 @@ Now isEmpty give us back `false`, since we went ahead and added some strings to 
 
 ## The 'new' Keyword
 
-### Scope
+By now you've noticed us using the word 'new' when creating objects. 'new' is a reserved word in JavaScript. It's used to create what is called an `instance` of an object. An instance is a live/active occurance of an object. So, as mentioned earlier, if a prototype is the DNA or blueprint of an object, and instance is the creation and use of that DNA in an occurance.
 
-## Creature
+This is also why when we added our isEmpty function to the String prototype, all strings inherited it: Modify something to the prototype DNA and all instances receive the changes.
 
-### Vampire
+## Creature of the Night
 
-### Zombie
+Now that we've created our own List object, inherited an existing JavaScript object (Array), and created a new member on the prototype (isEmpty), we're going to create our very own object from scratch. After that, we'll use it as our `base` and create `derived` objects, which will inherit it.
 
-### insanceof
+*Try it (We do)*: Together, as a class, we're going to build an object from scratch. The object is going to be called CreatureOfTheNight. We're going to brainstorm together, different charateristics a CreatureOfTheNight might have and then we'll add them to our prototype.
+
+*Questions*
+
+1. To build our CreatureOfTheNight object, what do we start with? (function)
+2. What are some characteristics a CreatureOfTheNight might have? (hair, eyes, height, weight, sounds, etc)
+3. What are some actions or behaviors a CreatureOfTheNight might perform?
+
+```javascript
+function CreatureOfTheNight() {}
+
+CreatureOfTheNight.prototype = {
+	hairColor: '',
+	eyeColor: '',
+	numberOfEyes: 2,
+	height: 0,
+	weight: 0,
+	sound: 'Growllll',
+	
+	speak: function () {
+		alert(this.sound);
+	}
+};
+
+```
+
+So there's our CreatureOfTheNight object. Let's create an `instance` of it and call the methid `speak`.
+
+```javascript
+var creature = new CreatureOfTheNight();
+creature.speak();
+```
+
+Not perticularly special just yet but that's okay. There's more.
+
+### Vampires
+
+How many different supernatural creatures and monsters can you think of? Probably a lot. For me, the first one that comes to mind is Vampires, Zombies, and Werewolves. Those are all creatures of the night and because of that, they all share similar characteristics to a creature of the night.
+
+Sounds like a good opportunity to use inheritance. 
+
+Let's make a Vampire object.
+
+*Questions*
+
+1. To build our vampire object, what do we start with ? (function)
+2. To inherit CreatureOfTheNight, what do we do? (Object.create)
+3. How do we change the sound of our vampire object?
+4. How do we create an instance and call speak?
+
+```javascript
+function Vampire () {}
+
+Vampire.prototype = Object.create(CreatureOfTheNight.prototype);
+Vampire.sound = "I want to drink your blood!!!";
+
+var vampire = new Vampire();
+vampire.speak();
+
+```
+
+
+### Assignment - Make Your Own Creature
 
 ## Recap
 
