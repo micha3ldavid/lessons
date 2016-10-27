@@ -103,7 +103,7 @@ console.info(greeting.reverse());
 
 ```javascript
 String.prototype.isEmpty = function () {
-  return this.length > 0;
+  return this.length < 1;
 };
 ```
 
@@ -113,11 +113,31 @@ Review one or two of the students solutions as a class.
 
 Now String is a native JavaScript object, which means it is a built in part of the language. Because of that, it's not the best idea to go altering the prototypes of these native objects, as they will affect these objects accross the board and in some cases can actually cause harm. 
 
-The good news is, there is an alternative. Instead off adding to the `prototype` we are going to inherit from it. Let's move away from String right now and have a look at Array. Array is an awesome object, which already comes with a ton of cool features on the prototype.
+The good news is, there is an alternative. Instead off adding to the `prototype` we are going to inherit from it. Let's move away from String right now and have a look at Array. Array is an awesome object, which already comes with a ton of cool features on the prototype. But what if we thought Array could benefit from having a few more cool features? Better yet, what if we want to create our OWN object and have it inerhit all of Array's existing functionality?
 
-1. Object.create (inherit from Array)
-2. Add simple method (isEmpty)
-3. Demo - compare Array and List (use push, and isEmpty)
+### List
+
+// todo
+
+```
+function List() {}
+
+List.prototype = Object.create(Array.prototype);
+```
+
+// todo
+
+```javascript
+function List() {}
+
+List.protoype = Object.create(Array.prototype);
+
+List.prototype.isEmpty = function () {
+	return this.length < 1;
+};
+```
+
+// compare Array and List (use push, and isEmpty)
 
 ## The 'new' Keyword
 
