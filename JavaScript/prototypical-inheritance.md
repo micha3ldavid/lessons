@@ -7,9 +7,7 @@ length: 90
 ## Learning Goals
 
 * define inheritance
-* articulate the main purpose of inheritance
-* create primitive objects
-* define object members, properties, and methods
+* create a reverse and isEmpty method on String.prototype
 * create a List object, which inherits from Array
 * use the 'new' keyword to create object instances
 * use scope to reference object members
@@ -111,21 +109,35 @@ Review one or two of the students solutions as a class.
 
 ## Inheriting from Array
 
-Now String is a native JavaScript object, which means it is a built in part of the language. Because of that, it's not the best idea to go altering the prototypes of these native objects, as they will affect these objects accross the board and in some cases can actually cause harm. 
+Now String is a native JavaScript object, which means it is a built in part of the language. It's not the best idea we go altering the prototypes of these native objects, as it will affect these objects accross the board and in some cases can actually cause harm. 
 
-The good news is, there is an alternative. Instead off adding to the `prototype` we are going to inherit from it. Let's move away from String right now and have a look at Array. Array is an awesome object, which already comes with a ton of cool features on the prototype. But what if we thought Array could benefit from having a few more cool features? Better yet, what if we want to create our OWN object and have it inerhit all of Array's existing functionality?
+The good news is, there is an alternative. Instead off adding to the `prototype` we are going to `inherit` from it. Let's move away from String right now and have a look at Array. Array is an awesome object, which already comes with a ton of cool features on the prototype. But what if we thought Array could benefit from having a few more cool features? Better yet, what if we want to create our OWN object and have it inerhit all of Array's existing functionality? Let's going ahead and do that. 
 
 ### List
 
-// todo
+First we're going to create a List object, which inherits from Array. Then we are going to add the same `isEmpty` method we created on String but put it on List. Finally, we'll use it in a couple different scenarios and see how well it works for us.
 
-```
+```javascript
 function List() {}
 
 List.prototype = Object.create(Array.prototype);
+
+console.info('Array.prototype', Array.prototype);
+console.info('List.prototype', List.prototype);
+
 ```
 
-// todo
+Looking at the console, we can see that List.prototype contains all of the same members as Array. This is exactly what we want, so let's break down what we just did.
+
+Whenever we create JavaScript objects that will make use of a prototype, we always want start by creating our object as a `function`. This function serves a very specific purpose, which we'll look at later. For now just know this is step one. 
+
+Since a function is an object, and (almost) all objects in JavaScript have a prototype, it also has a prototype. And as we saw with objects earlier on, the prototype is what holds our properties. So that is where we want to do most of our work.
+
+Since we first want to inherit from Array, we are assigning a copy of Array.prototype to List.prototype by using Object.create. Object.create is a really cool function that has some very advanced uses. I don't want to get into too much detail about it just yet. For now, just know that Object.create will create a prototype object from whatever you pass to it.
+
+#### Adding isEmpty
+
+Now that our List has inherited all off Array's memebers, let's add our isEmpty function we created earlier when we were using String.
 
 ```javascript
 function List() {}
@@ -135,9 +147,47 @@ List.protoype = Object.create(Array.prototype);
 List.prototype.isEmpty = function () {
 	return this.length < 1;
 };
+
+console.info('Array.prototype', Array.prototype);
+console.info('List.prototype', List.prototype);
+
 ```
 
-// compare Array and List (use push, and isEmpty)
+Looking at the two prototypes in the console, we can see that List has all of the same members as Array and now also has isEmpty, where as Array does not have isEmpty. We've successfully created a List object, inherited Array, and added a new isEmpty memeber to the prototype.
+
+#### Array and List in Action
+
+Let's take a little time to play around with our newly created object.
+
+```javascript
+var colorList = new List(); 
+var colorArray = new Array();
+
+console.info('color list is empty', colorList.isEmpty());
+console.info('color array is empty', colorArray.isEmpty());
+```
+
+What's this? A JavaScript error. Here we can see that Array does not have a property called isEmpty. But List does. So let's go ahead and remove that line and look at the output.
+
+```javascript
+var colorList = new List(); 
+
+console.info('color list is empty', colorList.isEmpty());
+```
+
+There it is, `true`, since we haven't added anything to our list yet. Let's add a few objects to our list and check it again.
+
+```javascript
+var colorList = new List(); 
+var colorArray = new Array();
+
+colorList.push("red");
+colorList.push("green");
+colorList.push("blue");
+
+console.info('color list is empty', colorList.isEmpty());
+```
+Now isEmpty give us back `false`, since we went ahead and added some strings to our List. But where did `push()` come from? Push is a member of Array and since our List inherits Array, we get everything it comes with as well.
 
 ## The 'new' Keyword
 
