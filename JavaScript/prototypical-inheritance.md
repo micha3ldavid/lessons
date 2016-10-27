@@ -57,15 +57,22 @@ So let's take a look at the prototype of these objects to get a feel for what's 
 
 Now that we've looked at a few different JavaScript objects and seen they all have a prototype, which consists of a variety of different properties, let's shift our focus onto String and go a little deeper.
 
-*Try it (I do, you follow along)*: Have students locate the toUpperCase method on the prototype. Once everybody has found it, walk through an example of using that method, first on the prototype, then on a String instance:
+*Try it (I do, you follow along)*: Have students locate the toUpperCase method on the prototype. Once everybody has found it, walk through an example of using that method on a String instance:
 
 ```javascript
   var greeting = "hello, world";
   console.info(greeting.toUpperCase()); 
   // => "HELLO, WORLD"
 ```
+What we can see here is that each time we create a new string, we have access to the properties we saw earlier on the prototype.
 
-Now these two scenarios produces different results. The first, we are calling `toUpperCase` where it has actually been defined and the second, we created a new string and were able to call `toUpperCase` without referencing the word `prototype`. The reason for this is because the prototype is almost like the "DNA" of an object. In order to put it to good use, we first must create an living version of that object.
+
+## String.prototype.reverse
+
+1. add method to prototype
+2. Demo
+3. adding to native prototype, not so good. why?
+4. segueway into inheriting from, rather than adding to, prototype 
 
 ## Why is Inheritance Important ?
 
@@ -75,13 +82,6 @@ Inheritance is important for a few reasons. First let's go back to our last exam
 
  1. code reuse
  2. instances (many copies of the same object)
-
-### String.prototype.reverse
-
-1. add method to prototype
-2. Demo
-3. adding to native prototype, not so good. why?
-4. segueway into inheriting from, rather than adding to, prototype 
 
 ### Let's Make a List
 
