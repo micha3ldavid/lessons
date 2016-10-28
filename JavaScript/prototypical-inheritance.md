@@ -7,13 +7,14 @@ length: 90
 ## Learning Goals
 
 * define inheritance
+* define property, method, and members
 * create a reverse and isEmpty method on String.prototype
 * create a List object, which inherits from Array
+* create an additinal isEmpty method on our custom List object
 * use the 'new' keyword to create object instances
-* use scope to reference object members
-* create a custom Creature object
-* create a Supernatural creature, which inherits our Creature
-* use instanceof to compare objects
+* use 'this' context to reference our object members
+* create a custom CreatureOfTheNight object
+* create you own Supernatural creature, which inherits from our CreatureOfTheNight
 
 ## Intro
 
@@ -349,9 +350,24 @@ Create your own CreatureOfTheNight. Your creature should meet the below criteria
 
 At this point, we'll share group/pair creatures with the rest of the class, pass around ideas, suggestuions, what works, what doesn't, etc.
 
-## Recap
+## Recap/Closing
 
-## Q & A
+Okay today we accomplished a whole lot of awesome in a very short amount of time:
+
+1. We talked about what inheritance is.
+2. We looked at objects and their prototypes
+3. We added our own methods to the String.prototype
+4. We created a List which inherited from the JavaScript Array
+5. We used context to reference memebers of our oject
+6. We create our very own CreatureOfTheNight and Vampire objects
+
+As we move further through the quarter, we're definitely going to continue to look at JavaScript objects, inheritance, context, and all the other goodies that make JavaScript great. So if it's not completely clicking right now, fear not. There are a ton of resources on the web for those who want to continue tinkering in their spare time - which i absolutely recommend. Right now I'm going to open up the rest of our time for questions and answers on anything we discussed today.
+
+[object oriented js](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
+
+[prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+
+### Q & A
 
 Any time left over use for Q&A. Inheritance and prototype are large subjects and we've just touched the surface. There are bound to be questions from students after this session.
 
