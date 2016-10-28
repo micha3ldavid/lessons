@@ -10,7 +10,7 @@ length: 90
 * define property, method, and members
 * create a reverse and isEmpty method on String.prototype
 * create a List object, which inherits from Array
-* create an additinal isEmpty method on our custom List object
+* create an additional isEmpty method on our custom List object
 * use the 'new' keyword to create object instances
 * use 'this' context to reference our object members
 * create a custom CreatureOfTheNight object
@@ -344,7 +344,7 @@ Create your own CreatureOfTheNight. Your creature should meet the below criteria
 1. Inherits CreateOfTheNight object.
 2. Makes use of the constructor function
 3. Updates the speak function to do something different than CreatureOfTheNight
-4. Add 1 or more creative, additinal features to your creature
+4. Add 1 or more creative, additional features to your creature
 
 *Share*
 
