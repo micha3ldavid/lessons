@@ -51,6 +51,16 @@ Yes, children are props too and since children are Objects, they will ALWAYS tri
   )}
 </List>
 ```
+This counts as triggering re-renders too:
+```jsx
+<MyComponent>
+  <div>
+    <header>Title</header>
+    <p>Body copy</p>
+  </div>
+</MyComponent>
+```
+
 ##### Solution: Switch your component from a PureComponent to a Component.
 
 ### Misuse #3 renderProps Pattern
