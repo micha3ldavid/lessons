@@ -4,7 +4,7 @@ Good afternoon, peeps.
 
 It's been a scattered day today, and I didn't have a specific topic in mind, so I thought I'd do a quick little ditty on React's Component vs. PureComponent.
 Basically the only real difference between Component and PureComponent is a minor optimization built into a component's lifecycle method called `shouldComponentUpdate`.
-What the optimization does is check a component's `props` to see if previous props are different than new props (they do this with === comparisons). PureComponent has this optimization, Component does not.
+What the optimization does is check a component's `props` to see if previous props are different than new props (they do this with === comparisons). If props are different, the component re-renders. If they aren't, it doesn't. PureComponent has this optimization, Component does not.
 
 That's literally it.
 
