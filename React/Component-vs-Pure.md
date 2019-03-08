@@ -4,13 +4,13 @@ Good afternoon, peeps.
 
 It's been a scattered day today, and I didn't have a specific topic in mind, so I thought I'd do a quick little ditty on React's Component vs. PureComponent.
 Basically the only real difference between Component and PureComponent is a minor optimization built into a component's lifecycle method called `shouldComponentUpdate`.
-What the optimization does is check a component's `props` to see if previous props are different than new props (they do this with === comparisons).
+What the optimization does is check a component's `props` to see if previous props are different than new props (they do this with === comparisons). PureComponent has this optimization, Component does not.
 
 That's literally it.
 
-And while this is super handy to have it also creates a lot of misuse.
+And while this is super handy to have it also creates a lot of misuse. What happens when you misuse PureComponent? Well, you do a hell of a lot of comparison checking during React re-renders and slow your app down.
 
-Here's why.
+Let's see some examples!
 
 #### Misuse #1 Inline Object Props
 If you are specifying any inline props, that have a typeof "object" or "function", they will ALWAYS trigger a full re-render, even with PureComponent. This is because two object never share the same signature. Let's look at an example.
